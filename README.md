@@ -17,14 +17,13 @@
     #ReadEtcHosts=yes
 
 ---
-
     sudo systemctl restart systemd-resolved
 ---
-    chmod +x ./MicroService_Architecture/Consul+nginxBalancer (vm1)/ports.sh
+    chmod +x ./MicroService_Architecture/consul+balancer_vm1/ports.sh
 ---
-    chmod +x ./MicroService_Architecture/Consul+nginxBalancer (vm1)/start.sh
+    chmod +x ./MicroService_Architecture/consul+balancer_vm1/start.sh
 ---
-    ./MicroService_Architecture/Consul+nginxBalancer (vm1)/ports.sh
+    ./MicroService_Architecture/consul+balancer_vm1/ports.sh
 ---
-    ./MicroService_Architecture/Consul+nginxBalancer (vm1)/start.sh
+    ./MicroService_Architecture/consul+balancer_vm1/start.sh
 
