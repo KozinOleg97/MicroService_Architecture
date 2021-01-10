@@ -1,5 +1,11 @@
 # MicroService_Architecture
 
+
+## Util
+
+    docker stop $(docker ps -qa)
+    docker rm $(docker ps -qa)
+
 ## Consul + balancer
     sudo nano /etc/systemd/resolved.conf
 ---
@@ -19,11 +25,13 @@
 ---
     sudo systemctl restart systemd-resolved
 ---
-    chmod +x ./MicroService_Architecture/consul+balancer_vm1/ports.sh
+    cd ./MicroService_Architecture/consul+balancer_vm1
 ---
-    chmod +x ./MicroService_Architecture/consul+balancer_vm1/start.sh
+    chmod +x ./ports.sh
 ---
-    ./MicroService_Architecture/consul+balancer_vm1/ports.sh
+    chmod +x ./start.sh
 ---
-    ./MicroService_Architecture/consul+balancer_vm1/start.sh
+    ./ports.sh
+---
+    ./start.sh up
 

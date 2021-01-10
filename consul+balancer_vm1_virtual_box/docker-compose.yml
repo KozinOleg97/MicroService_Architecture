@@ -7,7 +7,7 @@ services:
     volumes:
      - "./consul/data:/consul/data"
     environment:
-      - CONSUL_BIND_INTERFACE=eth0
+      - CONSUL_BIND_INTERFACE=enp0s8
       - ui
       - bootstrap
       - client=0.0.0.0
