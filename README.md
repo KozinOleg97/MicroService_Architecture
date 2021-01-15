@@ -60,7 +60,7 @@ For VirtualBox use *_virtualBox folders
 ---
     ./start.sh up
 ---
-    cd ./MicroService_Architecture/services/service_hello
+    cd ./MicroService_Architecture/elk_stack+registrator_vm5
 ---
     docker-compose up
 
