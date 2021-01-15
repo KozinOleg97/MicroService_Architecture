@@ -9,12 +9,14 @@ For VirtualBox use *_virtualBox folders
     docker rm $(docker ps -qa)
 
 ## Screen
-    
+    sudo apt update
     sudo apt install screen
 
     screen -ls
 
     screen -r <id>
+
+    Чтобы запустить в новом окне терминал, нажмите Ctr + a и c (или наберите screen).
 
     ctrl+a tab
     
@@ -31,8 +33,128 @@ For VirtualBox use *_virtualBox folders
 ### Remove rep
 
     sudo rm -r MicroService_Architecture
-    
-    
+
+# ELC + registrator 
+
+    sudo nano /etc/systemd/resolved.conf
+---
+
+    [Resolve]
+    DNS=CONSUL_IP
+    #FallbackDNS=
+    Domains=~consul
+    #LLMNR=no
+    #MulticastDNS=no
+    #DNSSEC=no
+    #DNSOverTLS=no
+    #Cache=no-negative
+    #DNSStubListener=yes
+    #ReadEtcHosts=yes
+
+---
+    sudo systemctl restart systemd-resolved
+---
+    cd ./MicroService_Architecture/registrator_v1
+---
+    chmod +x ./start.sh
+---
+    ./start.sh up
+---
+    cd ./MicroService_Architecture/services/service_hello
+---
+    docker-compose up
+
+
+# services + registrator (service_hello)
+
+    sudo nano /etc/systemd/resolved.conf
+---
+
+    [Resolve]
+    DNS=CONSUL_IP
+    #FallbackDNS=
+    Domains=~consul
+    #LLMNR=no
+    #MulticastDNS=no
+    #DNSSEC=no
+    #DNSOverTLS=no
+    #Cache=no-negative
+    #DNSStubListener=yes
+    #ReadEtcHosts=yes
+
+---
+    sudo systemctl restart systemd-resolved
+---
+    cd ./MicroService_Architecture/registrator_v1
+---
+    chmod +x ./start.sh
+---
+    ./start.sh up
+---
+    cd ./MicroService_Architecture/services/service_hello
+---
+    docker-compose up
+
+# nginx proxy + registrator 
+
+    sudo nano /etc/systemd/resolved.conf
+---
+
+    [Resolve]
+    DNS=CONSUL_IP
+    #FallbackDNS=
+    Domains=~consul
+    #LLMNR=no
+    #MulticastDNS=no
+    #DNSSEC=no
+    #DNSOverTLS=no
+    #Cache=no-negative
+    #DNSStubListener=yes
+    #ReadEtcHosts=yes
+
+---
+    sudo systemctl restart systemd-resolved
+---
+    cd ./MicroService_Architecture/registrator_v1
+---
+    chmod +x ./start.sh
+---
+    ./start.sh up
+---
+    cd ./MicroService_Architecture/nginx_proxy_vm3
+---
+    docker-compose up
+
+
+# Keycloak + registrator
+
+    sudo nano /etc/systemd/resolved.conf
+---
+
+    [Resolve]
+    DNS=CONSUL_IP
+    #FallbackDNS=
+    Domains=~consul
+    #LLMNR=no
+    #MulticastDNS=no
+    #DNSSEC=no
+    #DNSOverTLS=no
+    #Cache=no-negative
+    #DNSStubListener=yes
+    #ReadEtcHosts=yes
+
+---
+    sudo systemctl restart systemd-resolved
+---
+    cd ./MicroService_Architecture/registrator_v1
+---
+    chmod +x ./start.sh
+---
+    ./start.sh up
+---
+    cd ./MicroService_Architecture/keycloak_vm2
+---
+    docker-compose up
 
 # Consul + balancer 
     sudo nano /etc/systemd/resolved.conf

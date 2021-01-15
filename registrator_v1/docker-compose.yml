@@ -1,5 +1,4 @@
 version: '3'
-
 services:  
   registrator:
     image: gliderlabs/registrator:latest
