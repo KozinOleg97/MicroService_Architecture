@@ -34,7 +34,7 @@ For VirtualBox use *_virtualBox folders
 
     sudo rm -r MicroService_Architecture
 
-# ELC + registrator 
+# ELk + registrator 
 
     sudo nano /etc/systemd/resolved.conf
 ---
