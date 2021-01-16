@@ -8,7 +8,7 @@ For VirtualBox use *_virtualBox folders
     docker stop $(docker ps -qa)
     docker rm $(docker ps -qa)
 
-## Screen
+### Screen
     sudo apt update
     sudo apt install screen
 
@@ -24,17 +24,30 @@ For VirtualBox use *_virtualBox folders
 
     
 
-# Git 
+### Git 
     sudo apt update
     sudo apt install git
 
     git clone https://github.com/KozinOleg97/MicroService_Architecture
+
+### Change swap file size (1 gb)
+
+    sudo swapoff /swapfile
+    sudo dd if=/dev/zero of=/swapfile bs=1M count=1024 oflag=append conv=notrunc
+    sudo mkswap /swapfile
+    sudo swapon /swapfile
+
 
 ### Remove rep
 
     sudo rm -r MicroService_Architecture
 
 # ELk + registrator 
+
+    sudo nano /etc/sysctl.conf
+    vm.max_map_count = 262144
+    sysctl -w vm.max_map_count=262144
+---
 
     sudo nano /etc/systemd/resolved.conf
 ---
