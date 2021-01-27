@@ -1,7 +1,7 @@
 input
-{
+{  
     udp
-    {
+    {  
         port => "12201"
         type => "syslog"
     }
@@ -11,17 +11,17 @@ filter {
         grok {
             match => { "message" => "%{COMBINEDAPACHELOG}" }
         }
-    }
+    }  
 }
 output
 {
     if [type] == "test"
     {
-        stdout
-        {
+        stdout  
+        {     
 
         }
-        elasticsearch
+        elasticsearch 
         {
     		hosts => ["es01:9200"]
 		    index => "test-%{+YYYY.MM.dd}"
@@ -29,7 +29,7 @@ output
     }
     if [type] == "syslog"
     {
-        elasticsearch
+        elasticsearch 
         {
     		hosts => ["es01:9200"]
 		    index => "syslog-%{+YYYY.MM.dd}"

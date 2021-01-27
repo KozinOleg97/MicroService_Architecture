@@ -44,7 +44,38 @@ For VirtualBox use *_virtualBox folders
 
     sudo rm -r MicroService_Architecture
 
-# ELk + registrator 
+
+# grafana + registrator (проблема с правами из контейнера решена через указание root пользователя)  
+
+    sudo nano /etc/systemd/resolved.conf
+---
+
+    [Resolve]
+    DNS=CONSUL_IP
+    #FallbackDNS=
+    Domains=~consul
+    #LLMNR=no
+    #MulticastDNS=no
+    #DNSSEC=no
+    #DNSOverTLS=no
+    #Cache=no-negative
+    #DNSStubListener=yes
+    #ReadEtcHosts=yes
+
+---
+    sudo systemctl restart systemd-resolved
+---
+    cd ./MicroService_Architecture/registrator_v1
+---
+    chmod +x ./start.sh
+---
+    ./start.sh up
+---
+    cd ./MicroService_Architecture/grafana_prometheus+egistrator_vm6
+---
+    docker-compose up
+
+# ELk + registrator (проблема с правами из контейнера решена через пробрасывание во внешний volume)
 
     sudo nano /etc/sysctl.conf
     vm.max_map_count = 262144

@@ -32,4 +32,5 @@ services:
         - PROXY_ADDRESS_FORWARDING=true
     restart: unless-stopped
     ports:
-      - '8180:8080'  
+      - '8180:8080'
+      - '8443:8443'

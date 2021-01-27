@@ -50,7 +50,7 @@ services:
      - cluster.initial_master_nodes=es01
      - "ES_JAVA_OPTS= -Xms512m -Xmx512m"
     volumes:
-      - ./elasticsearch/data:/usr/share/elasticsearch/data
+      - "esdata:/usr/share/elasticsearch/data"
     ports:
       - 9200:9200
       - 9300:9300 
@@ -68,3 +68,5 @@ services:
      - ELASTICSEARCH_HOSTS=http://es01:9200
     networks:
       - elknetwork
+volumes:
+  esdata:
